@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 import { DragPreviewContainerProps } from './types';
 
 const DragPreviewContainer = styled.div<DragPreviewContainerProps>`
-  opacity: ${(props) => (props.isHidden ? 0.3 : 1)};
+  transform: ${(props) => (props.isPreview ? 'rotate(5deg)' : undefined)};
+  opacity: ${(props) => (props.isHidden ? 0 : 1)};
 `;
 
 const ColumnContainer = styled(DragPreviewContainer)`
@@ -13,6 +14,17 @@ const ColumnContainer = styled(DragPreviewContainer)`
   border-radius: 3px;
   padding: 8px 8px;
   flex-grow: 0;
+  cursor: move; /* fallback if grab cursor is unsupported */
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  :w ;
+
+  &:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+  }
 `;
 
 export default ColumnContainer;

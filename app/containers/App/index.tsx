@@ -5,6 +5,7 @@ import AppContainer from './AppContiner';
 import { Column, AddNewItem } from '@/containers';
 import { GlobalCss } from '@/styles';
 import { useAppState } from '@/utils';
+import CustomDragLayer from '../CustomDragLayer';
 
 const App = () => {
   const { state, dispatch } = useAppState();
@@ -12,8 +13,9 @@ const App = () => {
     <AppContainer>
       <Global styles={GlobalCss} />
 
+      <CustomDragLayer />
       {state.lists.map((list, i) => (
-        <Column id={list.id} title={list.title} key={list.id} index={i} />
+        <Column isPreview={false} id={list.id} title={list.title} key={list.id} index={i} />
       ))}
 
       <AddNewItem
