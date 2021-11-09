@@ -10,15 +10,15 @@ const Column = ({ title, index, id, isPreview }: ColumnProps) => {
   const { state, dispatch } = useAppState();
   const ref = useRef<HTMLDivElement>(null);
   const { drag } = useItemDrag({ type: 'COLUMN', id, index, title });
-  const { drop } = useColumnDrop({ index });
+  const { drop } = useColumnDrop({ index, id });
 
   drag(drop(ref));
 
   return (
     <ColumnContainer isPreview={isPreview} ref={ref} isHidden={isHidden(isPreview, state.draggedItem, 'COLUMN', id)}>
       <ColumnTitle value={title} />
-      {state.lists[index].tasks.map((task) => (
-        <Card value={task.value} key={task.id} />
+      {state.lists[index].tasks.map((task, i) => (
+        <Card isPreview={false} index={i} id={task.id} columnId={id} value={task.value} key={task.id} />
       ))}
       <AddNewItem
         toggleButtonText="+ Add another task"

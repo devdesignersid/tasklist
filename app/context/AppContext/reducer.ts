@@ -34,6 +34,15 @@ export const appStateReducer = (state: AppState, action: Action): AppState => {
     case 'SET_DRAGGED_ITEM': {
       return { ...state, draggedItem: action.payload };
     }
+    case 'MOVE_TASK': {
+      const { dragIndex, hoverIndex, sourceColumn, targetColumn } = action.payload;
+      const sourceListIndex = findItemIndexById(state.lists, sourceColumn);
+      const targetListIndex = findItemIndexById(state.lists, targetColumn);
+      const item = state.lists[sourceListIndex].tasks.splice(dragIndex, 1)[0];
+      state.lists[targetListIndex].tasks.splice(hoverIndex, 0, item);
+      return { ...state };
+    }
+
     default: {
       return {
         ...state

@@ -18,7 +18,6 @@ const ColumnContainer = styled(DragPreviewContainer)`
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
-  :w ;
 
   &:active {
     cursor: grabbing;

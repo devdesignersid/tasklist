@@ -14,6 +14,7 @@ export const useItemDrag = (item: DragItem) => {
     },
     end: () => dispatch({ type: 'SET_DRAGGED_ITEM', payload: undefined })
   });
+
   useEffect(() => {
     preview(getEmptyImage(), { captureDraggingState: true });
   }, [preview]);

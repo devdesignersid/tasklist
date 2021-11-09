@@ -17,6 +17,15 @@ export type Action =
   | {
       type: 'SET_DRAGGED_ITEM';
       payload: DragItem | undefined;
+    }
+  | {
+      type: 'MOVE_TASK';
+      payload: {
+        dragIndex: number;
+        hoverIndex: number;
+        sourceColumn: string;
+        targetColumn: string;
+      };
     };
 
 export interface AppStateContextProps {
