@@ -5,14 +5,14 @@ import NewItemFormContainer from './NewItemFormContainer';
 import { NewItemButton, NewItemInput } from '@/components';
 import { NewItemFormProps } from './types';
 
-const NewItemForm = ({ onAdd }: NewItemFormProps) => {
+const NewItemForm = ({ onAdd, dark }: NewItemFormProps) => {
   const [value, setValue] = useState('');
   const inputRef = useFocus();
 
   return (
-    <NewItemFormContainer>
+    <NewItemFormContainer dark={dark}>
       <NewItemInput ref={inputRef} value={value} onChange={(e) => setValue(e.target.value)} />
-      <NewItemButton onClick={() => onAdd(value)}>Create</NewItemButton>
+      <NewItemButton onClick={() => onAdd?.(value)}>Create</NewItemButton>
     </NewItemFormContainer>
   );
 };

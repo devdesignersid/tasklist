@@ -5,9 +5,10 @@ const AppContainer = styled.div`
   background-color: #3179ba;
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   height: 100%;
   padding: 20px;
-  width: 100%;
+  overflow: auto;
 `;
 
 export default AppContainer;

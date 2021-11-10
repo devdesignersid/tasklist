@@ -11,6 +11,7 @@ const AddNewItem = (props: AddNewItemProps) => {
   if (showForm) {
     return (
       <NewItemForm
+        dark={dark}
         onAdd={(value: string) => {
           onAdd(value);
           setShowForm(false);

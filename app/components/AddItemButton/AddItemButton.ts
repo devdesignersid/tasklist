@@ -9,6 +9,7 @@ const AddItemButton = styled.button<AddItemButtonProps>`
   color: ${(props) => (props.dark ? '#000' : '#fff')};
   cursor: pointer;
   max-width: 300px;
+  min-width: ${(props) => (props.dark ? undefined : '300px')};
   padding: 10px 12px;
   text-align: left;
   font-size: 14px;

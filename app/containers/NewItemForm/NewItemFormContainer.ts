@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
+import { NewItemFormProps } from './types';
 
-const NewItemFormContainer = styled.div`
+const NewItemFormContainer = styled.div<NewItemFormProps>`
   max-width: 300px;
+  min-width: ${(props) => (props.dark ? undefined : '300px')};
   display: flex;
   flex-direction: column;
-  width: 100%;
   align-items: flex-start;
 `;
 
